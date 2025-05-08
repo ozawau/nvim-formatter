@@ -1,51 +1,52 @@
 # nvim-formatter
 
-一个 Neovim 插件，用于将 Python 字典格式转换为标准 JSON 格式。
+A Neovim plugin for seamless data format conversion, supporting JSON, Python dict, and more with extensible architecture.
 
-## 功能
+## Features
 
-- 将选中的 Python 字典文本转换为格式化的 JSON
-- 支持嵌套的字典和列表
-- 自动处理 Python 的 `True`/`False` 转换为 JSON 的 `true`/`false`
-- 保持良好的缩进和格式
+- Convert selected Python dict text to formatted JSON
+- Support nested dictionaries and lists
+- Automatically convert Python's `True`/`False` to JSON's `true`/`false`
+- Maintain proper indentation and formatting
+- [Planned] Support more format conversions (YAML, TOML, XML, etc.)
 
-## 安装
+## Installation
 
-### 使用 [packer.nvim](https://github.com/wbthomason/packer.nvim)
+### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use {
   'ozawau/nvim-formatter',
   config = function()
-    -- 可选配置
+    -- Optional configuration
   end
 }
 ```
 
-### 使用 [vim-plug](https://github.com/junegunn/vim-plug)
+### Using [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
 Plug 'ozawau/nvim-formatter'
 ```
 
-## 使用方法
+## Usage
 
-### 命令
+### Commands
 
-插件提供了 `:Py2Json` 命令，可以在普通模式或可视模式下使用：
+The plugin provides `:Py2Json` command, which can be used in normal or visual mode:
 
-- 在普通模式下，转换当前行的 Python 字典
-- 在可视模式下，转换选中的 Python 字典文本
+- In normal mode: Convert Python dict on current line
+- In visual mode: Convert selected Python dict text
 
-### 示例
+### Example
 
-将以下 Python 字典：
+Convert the following Python dict:
 
 ```python
 {'callback_url': 'http://127.0.0.1:8080', 'attempts': 15, 'hello': 'world'}
 ```
 
-转换为格式化的 JSON：
+To formatted JSON:
 
 ```json
 {
@@ -55,28 +56,28 @@ Plug 'ozawau/nvim-formatter'
 }
 ```
 
-### 自定义快捷键
+### Keybindings
 
-您可以在您的 Neovim 配置中添加自定义快捷键：
+You can add custom keybindings in your Neovim config:
 
 ```vim
-" 在普通模式和可视模式下映射 <leader>pj 到 Py2Json 命令
+" Map <leader>pj to Py2Json command in normal and visual mode
 nnoremap <leader>pj :Py2Json<CR>
 vnoremap <leader>pj :Py2Json<CR>
 ```
 
-或者在 Lua 配置中：
+Or in Lua config:
 
 ```lua
 vim.keymap.set('n', '<leader>pj', ':Py2Json<CR>', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>pj', ':Py2Json<CR>', { noremap = true, silent = true })
 ```
 
-## 注意事项
+## Notes
 
-- 插件使用 Lua 的 `load` 函数解析 Python 字典，因此处理非常复杂的字典时可能会有限制
-- 确保您的 Python 字典格式正确，否则可能会导致解析错误
+- The plugin uses Lua's `load` function to parse Python dicts, so there might be limitations with very complex dicts
+- Ensure your Python dict is properly formatted, otherwise parsing errors may occur
 
-## 许可证
+## License
 
 MIT
