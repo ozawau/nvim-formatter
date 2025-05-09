@@ -51,7 +51,7 @@ The plugin provides the following commands, which can be used in normal or visua
 
 ### Example
 
-Convert the following Python dict:
+Use `:NfPy2Json` to convert the following Python dict:
 
 ```python
 {'callback_url': 'http://127.0.0.1:8080', 'attempts': 15, 'hello': 'world'}
@@ -67,13 +67,13 @@ To formatted JSON:
 }
 ```
 
-Convert Unicode escape sequences to readable text:
+Use `:NfDeunicode` to convert Unicode escape sequences to readable text:
 
 ```
 {"hello": "\u4f60\u597d"} → {"hello": "你好"}
 ```
 
-Convert readable text to Unicode escape sequences:
+Use `:NfUnicode` to convert readable text to Unicode escape sequences:
 
 ```
 {"hello": "你好"} → {"hello": "\u4f60\u597d"}
