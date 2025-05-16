@@ -1,6 +1,6 @@
 " nvim-formatter.vim - 格式化和转换工具
 " Maintainer: ozawau
-" Version: 1.1
+" Version: 1.2
 
 if exists('g:loaded_nvim_formatter') | finish | endif
 let g:loaded_nvim_formatter = 1
