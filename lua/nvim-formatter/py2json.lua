@@ -18,11 +18,7 @@ local function python_dict_to_json(str)
     
     if escape_next then
       -- 处理转义字符
-      if char == "'" or char == '"' then
-        result = result .. "\\" .. char
-      else
-        result = result .. "\\" .. char
-      end
+      result = result .. "\\" .. char
       escape_next = false
     elseif char == "\\" then
       -- 下一个字符需要转义
@@ -40,7 +36,12 @@ local function python_dict_to_json(str)
         result = result .. '"' -- 使用双引号
       else
         -- 在字符串内部的另一种引号
-        result = result .. char
+        if char == '"' then
+          -- 转义字符串内的双引号
+          result = result .. '\\"'
+        else
+          result = result .. char
+        end
       end
     elseif char == ":" and not in_string then
       -- 保留冒号作为 JSON 的键值对分隔符
